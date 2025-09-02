@@ -1,0 +1,13 @@
+-- Coloque este script em StarterCharacterScripts
+local character = script.Parent
+local humanoid = character:WaitForChild("Humanoid")
+
+-- Remove qualquer dano recebido
+humanoid.HealthChanged:Connect(function()
+    humanoid.Health = humanoid.MaxHealth
+end)
+
+-- Também garante que a morte não aconteça
+humanoid.Died:Connect(function()
+    humanoid.Health = humanoid.MaxHealth
+end)
